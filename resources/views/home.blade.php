@@ -1,4 +1,5 @@
 <?php
+
 ?>
 
     <!DOCTYPE html>
@@ -11,9 +12,9 @@
     <title>Home</title>
 </head>
 <body>
-    <h1>Welcome</h1>
+    <h1>Homepage</h1>
 
-    <a href="/login">Login</a>
+    <a href="/product-list">Product list</a>
     <br>
     <a href="/cart">Cart</a>
 </body>

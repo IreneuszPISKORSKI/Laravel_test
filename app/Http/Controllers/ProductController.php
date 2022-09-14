@@ -7,11 +7,11 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     public function productsList():string{
-        return 'Liste des produits';
+        return view('product-list');
     }
 
     public function product($id):string{
-        return 'Fiche du produit ' . $id;
+        return view('product-details', ['id' => $id]);
     }
 
 }
