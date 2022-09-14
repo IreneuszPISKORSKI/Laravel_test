@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,6 +14,32 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+//Route::get('product', function () {
+//    return 'Liste des produits';
+//});
+//
+//Route::get('/product/{id}', function ($id) {
+//    return 'Fiche du produit ' . $id;
+//})->where('id', '[0-9]+');
+//
+//Route::get('cart', function () {
+//    return 'Panier';
+//});
+
+
+
+
+Route::get('/', [HomeController::class, 'home']);
+
+Route::get('product', [ProductController::class, 'product']);
+
+Route::get('product/{id}', [ProductController::class , 'product']);
+
+Route::get('cart', [CartController::class, 'cart']);
+
+
+
 
 //Route::get('/', function () {
 //    return view('home');
@@ -25,20 +53,9 @@ use Illuminate\Support\Facades\Route;
 //    return view('login');
 //});
 
+//
+//Route::get('/', function () {
+//    return 'Homepage';
+//});
 
-Route::get('/', function () {
-    return 'Homepage';
-});
-
-Route::get('product', function () {
-    return 'Liste des produits';
-});
-
-Route::get('/product/{id}', function ($id) {
-    return 'Fiche du produit ' . $id;
-})->where('id', '[0-9]+');
-
-Route::get('cart', function () {
-    return 'Panier';
-});
 
