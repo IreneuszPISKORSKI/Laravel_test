@@ -30,13 +30,21 @@ use App\Http\Controllers\HomeController;
 
 
 
+
 Route::get('/', [HomeController::class, 'home']);
 
-Route::get('product', [ProductController::class, 'product']);
+Route::get('product', [ProductController::class, 'productsList']);
 
-Route::get('product/{id}', [ProductController::class , 'product']);
+Route::get('product/{id}', [ProductController::class , 'product'])->where('id', '[0-9]+');
 
 Route::get('cart', [CartController::class, 'cart']);
+
+
+
+
+
+
+
 
 
 
@@ -49,13 +57,13 @@ Route::get('cart', [CartController::class, 'cart']);
 //    return view('cart');
 //});
 //
-//Route::get('login', function () {
-//    return view('login');
+//Route::get('product-list', function () {
+//    return view('product-list');
 //});
 
 //
-//Route::get('/', function () {
-//    return 'Homepage';
+//Route::get('product-details', function () {
+//    return view('product-details');
 //});
 
 

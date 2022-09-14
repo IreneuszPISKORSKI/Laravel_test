@@ -6,11 +6,12 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function product($id):string{
-        if ($id===null) {
-            return 'Liste des produits';
-        }else{
-            return 'Fiche du produit ' . $id;
-        }
+    public function productsList():string{
+        return 'Liste des produits';
     }
+
+    public function product($id):string{
+        return 'Fiche du produit ' . $id;
+    }
+
 }
