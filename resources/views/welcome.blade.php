@@ -4,10 +4,6 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <h1>
-            "Hello World From Laravel v9.x (PHP v8.x.x)"
-        </h1>
-
         <title>Laravel</title>
 
         <!-- Fonts -->
