@@ -1,5 +1,4 @@
-<?php
-?>
+@extends('layout')
 
 @section('title')
     Panier
