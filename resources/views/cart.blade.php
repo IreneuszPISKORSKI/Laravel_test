@@ -1,20 +1,19 @@
 <?php
 ?>
 
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/style.css" rel="stylesheet">
-    <title>Panier</title>
-</head>
-<body>
+@section('title')
+    Panier
+@endsection
+
+@section('content')
     <h1>Panier</h1>
 
     <a href="/">Home</a>
     <br>
     <a href="/product-list">Product list</a>
-</body>
-</html>
+@endsection
+
+@section('footer')
+    @parent
+    <p>Created by me</p>
+@endsection

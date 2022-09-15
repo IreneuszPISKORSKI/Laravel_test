@@ -1,4 +1,22 @@
 body{
-    background: white ;
     color: navy;
+    background: lightgrey;
+}
+
+.container{
+    background: darkgrey ;
+}
+
+.footer{
+    text-align: center;
+    margin-top: 15px;
+    background: gray;
+    color: white;
+}
+
+.header{
+    background: darkgreen;
+    text-align: center;
+    color: yellow;
+    font-size: 25px;
 }
