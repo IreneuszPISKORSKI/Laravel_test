@@ -7,6 +7,90 @@ body{
     background: darkgrey ;
 }
 
+/*---------------------*/
+.containerItem{
+    display: flex;
+    flex-direction: row;
+    border: black solid 3px;
+    background: darkseagreen;
+    margin: 5px;
+    padding: 3px;
+    max-width: 30em;
+}
+.containerCart{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: black solid 1px;
+}
+
+#containerCartName{
+    width: 20em;
+}
+
+.containerSummary{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.containerAll{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.summary{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: right;
+    margin-left: 10px;
+}
+
+#discountApply{
+    color: red;
+    text-decoration: line-through;
+    font-size: smaller;
+}
+
+.transporter{
+    display: flex;
+    justify-content: center;
+}
+
+.validationButtonContainer{
+    display: flex;
+    justify-content: center;
+}
+
+#validationButton{
+    /*display: flex;*/
+    /*justify-content: center;*/
+    align-items: center;
+    height: 50px;
+    width: 250px;
+}
+
+/*.clientsList{*/
+/*    display: flex;*/
+/*    justify-content: space-evenly;*/
+/*    border: black solid 1px;*/
+/*}*/
+
+/*.client{*/
+/*    width: 10em;*/
+/*}*/
+
+/*.dis{*/
+/*    background: rgba(255,255,255,0);*/
+/*    border: none;*/
+/*    color: black;*/
+/*}*/
+
+
+/*-------------*/
+
+
 .footer{
     text-align: center;
     margin-top: 15px;
@@ -19,4 +103,14 @@ body{
     text-align: center;
     color: yellow;
     font-size: 25px;
+}
+
+.header a:hover, .header ul li:hover, .header a:visited, .header ul li:visited {
+    background: red;
+    color: black;
+}
+
+.header ul li{
+    display: inline;
+    margin-left: 15px;
 }

@@ -7,9 +7,12 @@
 @section('content')
     <h1>Panier</h1>
 
-    <a href="/">Home</a>
-    <br>
-    <a href="/product-list">Product list</a>
+    <div>
+        <div>Product</div>
+        <div>Price per unit</div>
+        <div>Quantity</div>
+        <div>Total</div>
+    </div>
 @endsection
 
 @section('footer')

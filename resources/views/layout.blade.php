@@ -9,6 +9,7 @@
 </head>
 
 <body>
+
     <div class="header">
         @section('header')
             @include('includes.header')
@@ -24,5 +25,6 @@
             @include('includes.footer')
         @show
     </div>
+
 </body>
 </html>

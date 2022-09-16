@@ -1,13 +1,9 @@
 @extends('layout')
 
-@section('title')
-    Home
-@endsection
+@section('title', 'Home')
 
 @section('content')
     <h1>Homepage</h1>
-
-    <a href="/product-list">Product list</a>
-    <br>
-    <a href="/cart">Cart</a>
+    <h3>Bienvenue dans mon magasin!</h3>
+    <p>Vous pouvez vous connecter ou parcourir la boutique.</p>
 @endsection

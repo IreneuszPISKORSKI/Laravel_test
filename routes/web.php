@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 /*
@@ -38,6 +39,7 @@ Route::get('product/{id}', [ProductController::class , 'product'])->where('id', 
 
 Route::get('cart', [CartController::class, 'cart']);
 
+Route::get('test', [TestController::class, 'test']);
 
 
 
