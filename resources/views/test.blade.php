@@ -25,23 +25,4 @@
 //$catalog = new Catalog($products);
 //$catalog->displayCatalog();
 
-
-
-$product = DB::select('select * from products where product_id = 1') ;
-use App\Models\ItemInStock;
-$product = $product[0];
-$name = $product->name;
-$product_id = $product->product_id;
-$price = $product->price;
-$weight = $product->weight;
-$available = $product->available;
-$description = $product->description;
-$stock = $product->stock;
-$category_id = $product->category_id;
-$image_url = $product->image_url;
-
-$catalog = new ItemInStock($name, $product_id, $price, $weight, $available, $description, $stock, $category_id, $image_url);
-$catalog->itemDetails($product_id);
-
-$currentURL = \Request::segment(2);
-dd($currentURL);
+dd($product);

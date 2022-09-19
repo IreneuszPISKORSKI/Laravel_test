@@ -12,23 +12,20 @@
 @endsection
 
 @section('content')
-    <?php
-    $idItem = \Request::segment(2);
-
-    $product = DB::table ;
-    use App\Models\ItemInStock;
-    $product = $product[0];
-    $name = $product->name;
-    $product_id = $product->product_id;
-    $price = $product->price;
-    $weight = $product->weight;
-    $available = $product->available;
-    $description = $product->description;
-    $stock = $product->stock;
-    $category_id = $product->category_id;
-    $image_url = $product->image_url;
-
-    $item = new ItemInStock($name, $product_id, $price, $weight, $available, $description, $stock, $category_id, $image_url);
-    echo $item->itemDetails();
-    ?>
+<h1>Product detail</h1>
+<div class="containerDetail">
+    <div><img src="{{$product->image_url}}" alt="Photo of iPhone" height="400"></div>
+    <div><h3>Name: {{$product->name}}</h3>
+        <p>Description: {{$product->description}}</p>
+        <p>Price: {{$product->price}}</p>
+{{--        <p>Price:{{formatPrice($product->price)}}</p>--}}
+        <p>Weight: {{$product->weight}}g</p>
+        @if($product->available =='1')
+            <p>Product availability: Available</p>
+        @else
+            <p class="notAvailable">Product availability: Not available</p>
+        @endif
+        <p>Quantity in stock: {{$product->stock}}</p>
+    </div>
+</div>
 @endsection

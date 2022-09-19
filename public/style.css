@@ -15,7 +15,7 @@ body{
     background: darkseagreen;
     margin: 5px;
     padding: 3px;
-    max-width: 30em;
+    width: 30em;
 }
 .containerCart{
     display: flex;
@@ -37,6 +37,23 @@ body{
 .containerAll{
     display: flex;
     flex-wrap: wrap;
+}
+
+.notAvailable{
+    color: red;
+}
+
+.imgCatalog{
+    width: 100px;
+    margin: 20px;
+}
+
+.linkToDetails{
+    text-align: center;
+}
+
+.descriptionCatalog{
+    /*margin-left: 20px;*/
 }
 
 .summary{

@@ -33,13 +33,15 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/', [HomeController::class, 'home']);
 
-Route::get('product-list', [ProductController::class, 'productsList']);
+Route::get('/product-list', [ProductController::class, 'productsList']);
+Route::get('/product-list/productsByPrice', [ProductController::class, 'productsByPrice']);
 
-Route::get('product/{id}', [ProductController::class , 'product'])->where('id', '[0-9]+');
+Route::get('/product/{id}', [ProductController::class , 'product'])->where('id', '[0-9]+');
 
-Route::get('cart', [CartController::class, 'cart']);
+Route::get('/cart', [CartController::class, 'cart']);
+Route::post('/cart', [CartController::class, 'store']);
 
-Route::get('test', [TestController::class, 'test']);
+Route::get('/test', [TestController::class, 'test']);
 
 
 
