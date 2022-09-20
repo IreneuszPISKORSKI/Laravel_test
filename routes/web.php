@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BackofficeController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TestController;
@@ -35,6 +36,7 @@ Route::get('/', [HomeController::class, 'home']);
 
 Route::get('/product-list', [ProductController::class, 'productsList']);
 Route::get('/product-list/productsByPrice', [ProductController::class, 'productsByPrice']);
+Route::get('/product-list/productsByName', [ProductController::class, 'productsByName']);
 
 Route::get('/product/{id}', [ProductController::class , 'product'])->where('id', '[0-9]+');
 
@@ -43,7 +45,15 @@ Route::post('/cart', [CartController::class, 'store']);
 
 Route::get('/test', [TestController::class, 'test']);
 
+Route::get('/backoffice', [BackofficeController::class, 'backoffice']);
+Route::get('/backoffice/product/{id}', [BackofficeController::class, 'productEdit']);
 
+Route::get('/backoffice/create', [BackofficeController::class, 'productCreatePage']);
+Route::post('/backoffice/create', [BackofficeController::class, 'productCreate']);
+
+Route::post('/backoffice/store', [BackofficeController::class, 'productStore']);
+
+Route::delete('/backoffice/delete/{$id}', [BackofficeController::class, 'productDelete']);
 
 //Route::get('/', function () {
 //    return view('home');

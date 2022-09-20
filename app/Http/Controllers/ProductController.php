@@ -21,7 +21,16 @@ class ProductController extends Controller
         return view('product-list', ['products' => $products]);
     }
 
+    public function productsByName():string{
+
+        $products = Products::orderBy('name')->get();
+
+        return view('product-list', ['products' => $products]);
+    }
+
+
     public function product($id):string{
+
         $product = Products::where('product_id', $id)->get();                                                           // == $product = DB::table('products')->where('product_id', $id)->get();
 
         return view('product-details', ['product' => $product[0], 'id' => $id]);
