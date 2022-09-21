@@ -17,19 +17,9 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-//Route::get('product', function () {
-//    return 'Liste des produits';
-//});
-//
-//Route::get('/product/{id}', function ($id) {
-//    return 'Fiche du produit ' . $id;
-//})->where('id', '[0-9]+');
-//
-//Route::get('cart', function () {
-//    return 'Panier';
-//});
 
 
+Route::get('/test', [TestController::class, 'test']);
 
 
 Route::get('/', [HomeController::class, 'home']);
@@ -37,39 +27,16 @@ Route::get('/', [HomeController::class, 'home']);
 Route::get('/product-list', [ProductController::class, 'productsList']);
 Route::get('/product-list/productsByPrice', [ProductController::class, 'productsByPrice']);
 Route::get('/product-list/productsByName', [ProductController::class, 'productsByName']);
-
 Route::get('/product/{id}', [ProductController::class , 'product'])->where('id', '[0-9]+');
 
 Route::get('/cart', [CartController::class, 'cart']);
 Route::post('/cart', [CartController::class, 'store']);
 
-Route::get('/test', [TestController::class, 'test']);
-
 Route::get('/backoffice', [BackofficeController::class, 'backoffice']);
-Route::get('/backoffice/product/{id}', [BackofficeController::class, 'productEdit']);
-
 Route::get('/backoffice/create', [BackofficeController::class, 'productCreatePage']);
-Route::post('/backoffice/create', [BackofficeController::class, 'productCreate']);
-
-Route::post('/backoffice/store', [BackofficeController::class, 'productStore']);
-
-Route::delete('/backoffice/delete/{$id}', [BackofficeController::class, 'productDelete']);
-
-//Route::get('/', function () {
-//    return view('home');
-//});
-//
-//Route::get('cart', function () {
-//    return view('cart');
-//});
-//
-//Route::get('product-list', function () {
-//    return view('product-list');
-//});
-//
-//
-//Route::get('product-details/{id}', function ($id) {
-//    return view('product-details', ['id' => $id]);
-//});
-
+Route::post('/backoffice', [BackofficeController::class, 'productCreate']);
+Route::get('/backoffice/{id}/edit', [BackofficeController::class, 'productEdit'])->where('id', '[0-9]+');
+Route::put('/backoffice/{id}', [BackofficeController::class, 'productUpdate']);
+Route::delete('/backoffice/{id}', [BackofficeController::class, 'productDelete'])->where('id', '[0-9]+');
+Route::get('/backoffice/product-deleted', [BackofficeController::class, 'productDeleted']);
 

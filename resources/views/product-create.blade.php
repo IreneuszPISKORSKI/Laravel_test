@@ -2,7 +2,7 @@
 
 
 @section('title')
-    Creation of the product
+    Add new product
 @endsection
 
 @section('header')
@@ -11,9 +11,9 @@
 @endsection
 
 @section('content')
-    <h1>Create Product</h1>
+    <h1 class="centerThings">Create Product</h1>
     <div class="containerDetail">
-        <form method="POST" action="/backoffice/create">
+        <form method="POST" action="/backoffice">
             {{ csrf_field() }}
             <div>
                 <label>Photo URL:<textarea type="text" name="image_url" cols="26"></textarea></label>

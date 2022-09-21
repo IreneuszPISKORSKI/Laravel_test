@@ -14,16 +14,17 @@
 @section('content')
     <h1>Edit Product</h1>
     <div class="containerDetail">
-        <form method="POST" action="/backoffice/store">
+        <form method="POST" action="/backoffice/{{$product->id}}">
             {{ csrf_field() }}
+            {{ method_field('PUT') }}
             <div><img src="{{$product->image_url}}" alt="Photo of iPhone" height="400"></div>
             <label>Photo URL:<textarea type="text" name="image_url" cols="26">{{$product->image_url}}</textarea></label>
             <br><br>
             <div><label for="name">Name: {{$product->name}}</label>
                 <input type="text" name="name" size="30" value="{{$product->name}}">
                 <br><br>
-                <label for="product_id">Product id: {{$product->product_id}}</label>
-                <input type="hidden" name="product_id" size="30" value="{{$product->product_id}}">
+                <label for="id">Product id: {{$product->id}}</label>
+                <input type="hidden" name="id" size="30" value="{{$product->id}}">
                 <br><br>
                 <label for="description">Description: {{$product->description}}</label><br>
                 <textarea type="text" cols="26" name="description">{{$product->description}}</textarea>

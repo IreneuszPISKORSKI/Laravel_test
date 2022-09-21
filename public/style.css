@@ -15,6 +15,10 @@ body{
     margin-left: 50px;
 }
 
+.centerThings{
+    text-align: center;
+}
+
 .containerItem{
     display: flex;
     flex-direction: row;

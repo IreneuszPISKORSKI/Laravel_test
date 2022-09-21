@@ -14,7 +14,7 @@
 @section('content')
 <h1>Product detail</h1>
 <div class="containerDetail">
-    <div><img src="{{$product->image_url}}" alt="Photo of iPhone" height="400"></div>
+    <div><img src="{{$product->image_url}}" alt="Photo of {{$product->name}}" height="400"></div>
     <div><h3>Name: {{$product->name}}</h3>
         <p>Description: {{$product->description}}</p>
         <p>Price: {{$product->price}}</p>
