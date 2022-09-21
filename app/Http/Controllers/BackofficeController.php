@@ -47,6 +47,7 @@ class BackofficeController extends Controller
     public function productCreate(Request $request): RedirectResponse{
 
         $product = new Products();
+
         $product->name = $request->input('name');
         $product->description = $request->input('description');
         $product->price = $request->input('price');
@@ -55,6 +56,7 @@ class BackofficeController extends Controller
         $product->stock = $request->input('stock');
         $product->available = $request->input('available');
         $product->category_id = $request->input('category_id');
+
         $product->save();
 
         return redirect('/backoffice');
