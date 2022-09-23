@@ -5,8 +5,7 @@
 @endsection
 
 @section('content')
-    <h1><a href="/backoffice/products">Product list</a> | <a href="/backoffice/orders">Orders</a> | <a href="/backoffice/order_product">Order product</a> | <a href="/backoffice/customers">Customers</a> | <a href="/backoffice/categories">Categories</a></h1>
-    <a href="/backoffice/create"><button>Create new Product</button></a>
+    <h1>Product list</h1> <a href="/backoffice/create"><button>Create new Product</button></a>
         <div class="containerAll">
             @foreach($products as $key => $product)
                 <div class="containerItem">

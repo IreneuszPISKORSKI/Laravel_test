@@ -6,24 +6,23 @@ use App\Models\Products;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
-class BackofficeController extends Controller
+class BackofficeProductController extends Controller
 {
-    public function backoffice():string
-    {
+    public function home():string{
 
         $products = Products::all();                                                                                        // == $products = DB::select('select * from products') ;
 
         return view('backoffice.products.product-home', ['products' => $products]);
     }
 
-    public function productEdit($id):string{
+    public function productEditPage($id):string{
 
         $product = Products::where('id', $id)->get();                                                           // == $product = DB::table('products')->where('id', $id)->get();
 
         return view('backoffice.products.product-edit', ['product' => $product[0], 'id' => $id]);
     }
 
-    public function productUpdate(Request $request): RedirectResponse{
+    public function productEdit(Request $request): RedirectResponse{
 
         $product = Products::find($request->input('id'));
 
@@ -38,7 +37,7 @@ class BackofficeController extends Controller
 
         $product->update();
 
-        return redirect('/backoffice');
+        return redirect('/backoffice/products');
     }
 
     public function productCreatePage():string{
@@ -60,12 +59,11 @@ class BackofficeController extends Controller
 
         $product->save();
 
-        return redirect('/backoffice');
+        return redirect('/backoffice/products');
     }
 
     public function productDelete($id){
         Products::destroy($id);
         return view('backoffice.products.product-deleted');
     }
-
 }

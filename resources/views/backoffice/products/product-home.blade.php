@@ -1,18 +1,18 @@
 @extends('layout')
 
 @section('title')
-    Backoffice
+    Backoffice - Products
 @endsection
 
 @section('content')
     <h1><a href="/backoffice/products">Product list</a> | <a href="/backoffice/orders">Orders</a> | <a href="/backoffice/order_product">Order product</a> | <a href="/backoffice/customers">Customers</a> | <a href="/backoffice/categories">Categories</a></h1>
-    <a href="/backoffice/create"><button>Create new Product</button></a>
+    <a href="/backoffice/products/create"><button>Create new Product</button></a>
         <div class="containerAll">
             @foreach($products as $key => $product)
                 <div class="containerItem">
                     <div><img class="imgCatalog" src="{{$product->image_url}}" alt="Photo of {{$product->name}}">
-                        <p class="linkToDetails"><a href="/backoffice/{{$product->id}}/edit"><button>Edit</button></a></p>
-                        <form method="post" action="/backoffice/{{$product->id}}" class="linkToDetails">
+                        <p class="linkToDetails"><a href="/backoffice/products/{{$product->id}}/edit"><button>Edit</button></a></p>
+                        <form method="post" action="/backoffice/products/{{$product->id}}" class="linkToDetails">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
                             <button>Delete</button>

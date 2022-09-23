@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\BackofficeController;
+use App\Http\Controllers\BackofficeProductController;
+use App\Http\Controllers\BackofficeAllController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TestController;
@@ -32,11 +33,17 @@ Route::get('/product/{id}', [ProductController::class , 'product'])->where('id',
 Route::get('/cart', [CartController::class, 'cart']);
 Route::post('/cart', [CartController::class, 'store']);
 
-Route::get('/backoffice', [BackofficeController::class, 'backoffice']);
-Route::get('/backoffice/create', [BackofficeController::class, 'productCreatePage']);
-Route::post('/backoffice', [BackofficeController::class, 'productCreate']);
-Route::get('/backoffice/{id}/edit', [BackofficeController::class, 'productEdit'])->where('id', '[0-9]+');
-Route::put('/backoffice/{id}', [BackofficeController::class, 'productUpdate']);
-Route::delete('/backoffice/{id}', [BackofficeController::class, 'productDelete'])->where('id', '[0-9]+');
-Route::get('/backoffice/product-deleted', [BackofficeController::class, 'productDeleted']);
+//Route::get('/backoffice/products', [BackofficeProductController::class, 'home']);
+//Route::get('/backoffice/products/create', [BackofficeProductController::class, 'productCreatePage']);
+//Route::post('/backoffice/products/create', [BackofficeProductController::class, 'productCreate']);
+//Route::get('/backoffice/products/{id}/edit', [BackofficeProductController::class, 'productEditPage'])->where('id', '[0-9]+');
+//Route::put('/backoffice/products/{id}', [BackofficeProductController::class, 'productEdit']);
+//Route::delete('/backoffice/products/{id}', [BackofficeProductController::class, 'productDelete'])->where('id', '[0-9]+');
 
+
+Route::get('/backoffice/others/{tomato}', [BackofficeAllController::class, 'home']);
+Route::get('/backoffice/others/{tomato}/create', [BackofficeAllController::class, 'allCreatePage']);
+Route::post('/backoffice/others/{tomato}/create', [BackofficeAllController::class, 'allCreate']);
+Route::get('/backoffice/others/{tomato}/{id}/edit', [BackofficeAllController::class, 'allEditPage'])->where('id', '[0-9]+');
+Route::put('/backoffice/others/{tomato}/{id}', [BackofficeAllController::class, 'allEdit']);
+Route::delete('/backoffice/others/{tomato}/{id}', [BackofficeAllController::class, 'allDelete'])->where('id', '[0-9]+');
