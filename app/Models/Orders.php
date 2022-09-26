@@ -9,13 +9,11 @@ class Orders extends Model
 {
     use HasFactory;
 
-    protected $table = "orders";
-
     public function customers(){
-        return $this->belongsTo(Customers::class);
+        return $this->belongsTo(Customers::class, 'customer_id');
     }
 
     public function order_product(){
-        return $this->hasMany(Order_product::class);
+        return $this->hasMany(Order_product::class, 'order_id');
     }
 }

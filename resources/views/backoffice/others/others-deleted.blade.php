@@ -6,5 +6,5 @@
 
 @section('content')
     <h1>The product has been removed from the database</h1>
-    <a href="/backoffice"><button>Return</button></a>
+    <a href="/backoffice/others/products"><button>Return</button></a>
 @endsection

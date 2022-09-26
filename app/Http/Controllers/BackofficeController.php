@@ -63,8 +63,10 @@ class BackofficeController extends Controller
         return redirect('/backoffice');
     }
 
-    public function productDelete($id){
+    public function productDelete($id)
+    {
         Products::destroy($id);
+
         return view('backoffice.products.product-deleted');
     }
 

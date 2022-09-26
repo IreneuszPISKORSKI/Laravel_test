@@ -4,27 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Models\Categories;
 use App\Models\Customers;
-use App\Models\Order_product;
 use App\Models\Orders;
 use App\Models\Products;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class BackofficeAllController extends Controller
 {
-    public function home($tomato): string
+    public function home($array): View
     {
-        switch ($tomato) {
+        switch ($array) {
             case 'products':
                 $dataArray = Products::all();
                 break;
             case 'orders':
                 $dataArray = Orders::all();
-//                dd($dataArray);
-                break;
-            case 'order_product':
-                $dataArray = Order_product::all()->groupBy('order_id');
-//                dd($products);
                 break;
             case 'customers':
                 $dataArray = Customers::all();
@@ -33,22 +28,37 @@ class BackofficeAllController extends Controller
                 $dataArray = Categories::all();
                 break;
             default:
-                dd($tomato);
+                dd($array);
                 break;
         }
-        return view('backoffice.others.others-home', ['dataArray' => $dataArray, 'tomato' => $tomato]);
+        return view('backoffice.others.others-home', ['dataArray' => $dataArray, 'array' => $array]);
 
     }
 
-    public function productEdit($tomato, $id): string
+    public function allEditPage($array, $id): View
     {
+        switch ($array) {
+            case 'products':
+                $dataArray = Products::findOrFail($id);
+                break;
+            case 'orders':
+                $dataArray = Orders::findOrFail($id);
+                break;
+            case 'customers':
+                $dataArray = Customers::findOrFail($id);
+                break;
+            case 'categories':
+                $dataArray = Categories::findOrFail($id);
+                break;
+            default:
+                dd($array);
+                break;
+        }
 
-        $product = $tomato::where('id', $id)->get();                                                           // == $product = DB::table('products')->where('id', $id)->get();
-
-        return view('backoffice.products.product-edit', ['product' => $product[0], 'id' => $id]);
+        return view('backoffice.others.others-edit', ['dataArray' => $dataArray, 'id' => $id]);
     }
 
-    public function productUpdate(Request $request): RedirectResponse
+    public function allEdit(Request $request): RedirectResponse
     {
 
         $product = Products::find($request->input('id'));
@@ -64,15 +74,15 @@ class BackofficeAllController extends Controller
 
         $product->update();
 
-        return redirect('/backoffice');
+        return redirect('/backoffice/others/products');
     }
 
-    public function productCreatePage(): string
+    public function allCreatePage(): string
     {
-        return view('backoffice.products.product-create');
+        return view('backoffice.others.others-create');
     }
 
-    public function productCreate(Request $request): RedirectResponse
+    public function allCreate(Request $request): RedirectResponse
     {
 
         $product = new Products();
@@ -88,12 +98,13 @@ class BackofficeAllController extends Controller
 
         $product->save();
 
-        return redirect('/backoffice');
+        return redirect('/backoffice/others/products');
     }
 
-    public function productDelete($id)
+    public function allDelete($tomato, $id)
     {
         Products::destroy($id);
-        return view('backoffice.products.product-deleted');
+
+        return view('backoffice.others.others-deleted');
     }
 }

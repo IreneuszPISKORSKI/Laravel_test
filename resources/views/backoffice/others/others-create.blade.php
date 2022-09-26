@@ -7,13 +7,13 @@
 
 @section('header')
     @parent
-    <a href="/backoffice">Back</a>
+    <a href="/backoffice/others/products">Back</a>
 @endsection
 
 @section('content')
     <h1 class="centerThings">Create Product</h1>
     <div class="containerDetail">
-        <form method="POST" action="/backoffice/products/create">
+        <form method="POST" action="/backoffice/others/products/create">
             {{ csrf_field() }}
             <div>
                 <label>Photo URL:<textarea type="text" name="image_url" cols="26"></textarea></label>

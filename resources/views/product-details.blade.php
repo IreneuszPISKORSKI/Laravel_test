@@ -2,7 +2,7 @@
 
 
 @section('title')
-    Fiche du produit {{$id}}
+    Fiche du produit {{$product->id}}
 @endsection
 
 

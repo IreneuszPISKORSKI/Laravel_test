@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Products;
-use Illuminate\Support\Facades\DB;
+use Illuminate\View\View;
 
 class ProductController extends Controller
 {
@@ -29,11 +29,11 @@ class ProductController extends Controller
     }
 
 
-    public function product($id):string{
+    public function product($id): View
+    {
+        $product = Products::findOrFail($id);                                                           // == $product = DB::table('products')->where('id', $id)->get();
 
-        $product = Products::where('id', $id)->get();                                                           // == $product = DB::table('products')->where('id', $id)->get();
-
-        return view('product-details', ['product' => $product[0], 'id' => $id]);
+        return view('product-details', ['product' => $product]);
     }
 
 }
