@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categories;
 use App\Models\Products;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -11,7 +12,7 @@ class BackofficeProductController extends Controller
 {
     public function index(): View{
 
-        $products = Products::all();                                                                                        // == $products = DB::select('select * from products') ;
+        $products = Products::with('category')->get();                                                                                        // == $products = DB::select('select * from products') ;
 
         return view('backoffice.products.product-home', ['products' => $products]);
     }
@@ -23,14 +24,14 @@ class BackofficeProductController extends Controller
     public function store(Request $request): RedirectResponse{
 
         $validated = $request->validate([
-            'name' => ['string'],
-            'description' => ['nullable', 'string'],
-            'price' => ['required', 'integer'],
-            'weight' => ['nullable', 'integer'],
+            'name' => ['string', 'max:45'],
+            'description' => ['nullable', 'string', 'max:255'],
+            'price' => ['required', 'integer', 'min:1'],
+            'weight' => ['nullable', 'integer', 'min:1'],
             'image_url' => ['nullable', 'url'],
-            'stock' => ['required', 'integer'],
+            'stock' => ['required', 'integer', 'min:1'],
             'available' => ['required', 'boolean'],
-            'category_id' => ['required', 'max:3'],
+            'category_id' => ['required', 'min:1'],
         ]);
 
         $product = new Products();
@@ -56,6 +57,17 @@ class BackofficeProductController extends Controller
     }
 
     public function update(Request $request): RedirectResponse{
+
+        $validated = $request->validate([
+            'name' => ['string', 'max:45'],
+            'description' => ['nullable', 'string', 'max:255'],
+            'price' => ['required', 'integer', 'min:1'],
+            'weight' => ['nullable', 'integer', 'min:1'],
+            'image_url' => ['nullable', 'url'],
+            'stock' => ['required', 'integer', 'min:1'],
+            'available' => ['required', 'boolean'],
+            'category_id' => ['required', 'min:1'],
+        ]);
 
         $product = Products::find($request->input('id'));
 

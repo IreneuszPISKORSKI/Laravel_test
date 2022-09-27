@@ -14,17 +14,13 @@
         <div>Total</div>
     </div>
 
-
-    @foreach($productsInCart as $key => $product)
-        @if($product['quantity']>0)
         <div class="containerCart">
-            <div id="containerCartName">{{$products[$key]['name']}}</div>
-            <div>{{$products[$key]['price']}}</div>
-            <div>{{$product['quantity']}}</div>
-            <div>{{$products[$key]['price']*$product['quantity']}}</div>
+            <div id="containerCartName">{{$product->name}}</div>
+            <div>{{$product->price}}</div>
+            <div>{{$productInCart['quantity']}}</div>
+            <div>{{$product->price*$productInCart['quantity']}}</div>
         </div>
-        @endif
-    @endforeach
+
 @endsection
 
 @section('footer')

@@ -25,7 +25,7 @@
                 {{--                <p>Price:{{formatPrice($product->price)}}</p>--}}
                 <p>Price: {{$product->price}}</p>
                 <p>Weight: {{$product->weight}}g</p>
-                <p>Class: {{$product->categories->category_name}} </p>
+                <p>Category: {{$product->category->category_name}} </p>
             </div>
         </div>
     @endforeach

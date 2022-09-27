@@ -19,6 +19,18 @@ body{
     text-align: center;
 }
 
+.errorRed{
+    color: red;
+    margin: 0;
+    padding: 0;
+
+}
+
+.inputRed{
+    border: 2px solid red;
+    border-radius: 5px;
+}
+
 .containerItem{
     display: flex;
     flex-direction: row;

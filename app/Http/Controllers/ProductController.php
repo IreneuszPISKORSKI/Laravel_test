@@ -7,7 +7,7 @@ use Illuminate\View\View;
 
 class ProductController extends Controller
 {
-    public function productsList():string{
+    public function productsList(): View{
 
         $products = Products::all();                                                                                    // == $products = DB::select('select * from products') ;
 

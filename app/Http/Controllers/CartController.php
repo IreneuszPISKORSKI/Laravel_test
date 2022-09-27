@@ -14,10 +14,12 @@ class CartController extends Controller
 
     public function store(Request $request)
     {
-        $productsInCart = $request->except('_token');
-        $products = Products::all();
-//dd($productsInCart);
-        return view('cart', ['products' => $products, 'productsInCart' => $productsInCart]);
-
+        $product = Products::findOrFail($request->id);
+        $request->validate([
+            'quantity' => ['integer', 'min:1', 'max:' . $product->stock],
+        ]);
+        $productInCart = $request->except('_token');
+//        dd($product, $productInCart);
+        return view('cart', ['product' => $product, 'productInCart' => $productInCart]);
     }
 }
